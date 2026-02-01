@@ -1,0 +1,35 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  background: #ffffff;
+  padding: 40px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+button {
+  font-size: 18px;
+  padding: 12px 25px;
+  margin: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #222;
+  color: white;
+  cursor: pointer;
+}
+
+button.reset {
+  background: #555;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.hint {
+  margin-top: 30px;
+  color: #555;
+}
