@@ -36,6 +36,9 @@ app.post("/reset", (req, res) => {
   res.json({ success: true });
 });
 
-app.listen(3000, () => {
-  console.log("✅ LineFree Barber running on http://localhost:3000");
+// ✅ PORT FIX FOR RENDER
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log("✅ LineFree Barber running on port " + PORT);
 });
