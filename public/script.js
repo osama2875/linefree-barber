@@ -13,7 +13,7 @@ function updateStatus() {
     .then(data => {
       const myToken = localStorage.getItem("myToken");
 
-      // ✅ CUSTOMER PAGE SAFE UPDATE
+      // CUSTOMER PAGE
       const resultBox = document.getElementById("result");
       if (resultBox && myToken) {
         resultBox.innerHTML = `
@@ -22,7 +22,7 @@ function updateStatus() {
         `;
       }
 
-      // ✅ BARBER PAGE SAFE UPDATE
+      // BARBER PAGE
       const current = document.getElementById("current");
       if (current) {
         current.innerText = "Current Token: " + data.currentToken;
@@ -34,3 +34,20 @@ function nextToken() {
   fetch("/next", { method: "POST" })
     .then(() => updateStatus());
 }
+
+function resetDay() {
+  fetch("/reset", { method: "POST" })
+    .then(() => {
+      localStorage.removeItem("myToken");
+      updateStatus();
+    });
+}
+
+// 🔥 VERY IMPORTANT (HTML buttons ke liye)
+window.getToken = getToken;
+window.nextToken = nextToken;
+window.resetDay = resetDay;
+
+// Auto refresh (slow internet friendly)
+setInterval(updateStatus, 10000);
+updateStatus();
